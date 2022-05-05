@@ -230,6 +230,7 @@ tf2::Transform Node::TransformFromMat (cv::Mat position_mat) {
 
 
 sensor_msgs::PointCloud2 Node::MapPointsToPointCloud (std::vector<ORB_SLAM2::MapPoint*> map_points) {
+    std::cout << "Number of map points: " << map_points.size() << std::endl;
   if (map_points.size() == 0) {
     std::cout << "Map point vector is empty!" << std::endl;
   }

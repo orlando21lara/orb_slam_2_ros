@@ -30,6 +30,7 @@ dynamic_reconfigure
 message_generation
 )
 
+set(OpenCV_DIR /usr/lib/x86_64-linux-gnu/cmake/opencv4)
 find_package(OpenCV 4.0 QUIET)
 if(NOT OpenCV_FOUND)
    find_package(OpenCV 3.0 QUIET)
@@ -40,6 +41,11 @@ if(NOT OpenCV_FOUND)
      endif()
    endif()
 endif()
+MESSAGE( STATUS "OpenCV_INCLUDE_DIRS: " ${OpenCV_INCLUDE_DIRS} )
+MESSAGE( STATUS "OpenCV_LIBRARIES: " ${OpenCV_LIBRARIES} )
+MESSAGE( STATUS "OpenCV_LIBRARY_DIRS: " ${OpenCV_LIBRARY_DIRS} )
+MESSAGE( STATUS "OpenCV_VERSION: " ${OpenCV_VERSION} )
+MESSAGE( STATUS "OpenCV_LIBS: " ${OpenCV_LIBS} )
 
 find_package(Eigen3 3.1.0 REQUIRED)
 

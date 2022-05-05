@@ -2,18 +2,20 @@
   <node name="orb_slam2_rgbd" pkg="orb_slam2_ros"
       type="orb_slam2_ros_rgbd" output="screen">
 
-       <remap from="/camera/rgb/image_raw" to="/camera/rgb/image_rect_color" />
-       <remap from="/camera/depth_registered/image_raw" to="/camera/depth_registered/sw_registered/image_rect" />
+       <!--remap from="/camera/rgb/image_raw" to="/camera/rgb/image_rect_color" /-->
+       <!--remap from="/camera/depth_registered/image_raw" to="/camera/depth_registered/sw_registered/image_rect" /-->
+       <remap from="/camera/depth_registered/image_raw" to="/camera/depth/image_raw" />
 
        <param name="publish_pointcloud" type="bool" value="true" />
        <param name="publish_pose" type="bool" value="true" />
        <param name="localize_only" type="bool" value="false" />
-       <param name="reset_map" type="bool" value="false" />
+       <param name="reset_map" type="bool" value="true" />
 
        <!-- static parameters -->
        <param name="load_map" type="bool" value="false" />
        <param name="map_file" type="string" value="map.bin" />
-       <param name="voc_file" type="string" value="$(find orb_slam2_ros)/orb_slam2/Vocabulary/ORBvoc.txt" />
+       <!--param name="voc_file" type="string" value="$(find orb_slam2_ros)/orb_slam2/Vocabulary/ORBvoc.txt" /-->
+       <param name="voc_file" type="string" value="/media/orlando21/DATA/UPenn/Courses/ESE650LearningInRobotics/FinalProject/ORB_SLAM2/Vocabulary/ORBvoc.txt" />
 
        <param name="pointcloud_frame_id" type="string" value="map" />
        <param name="camera_frame_id" type="string" value="camera_link" />
@@ -49,6 +51,7 @@
       <param name="camera_k2" type="double" value="0.06503549218177795" />
       <param name="camera_p1" type="double" value="0.000849052332341671" />
       <param name="camera_p2" type="double" value="0.001785792293958366" />
+      <param name="camera_k3" type="double" value="0.0" />
       <!-- IR projector baseline times fx (aprox.) -->
       <param name="camera_baseline" type="double" value="37.2925" />
   </node>
